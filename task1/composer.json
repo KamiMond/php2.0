@@ -1,0 +1,18 @@
+{
+    "name": "geekbrains/leveltwo",
+    "description": "my description",
+    "autoload": {
+        "psr-4": {
+            "Geekbrains\\Leveltwo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "KamiMond",
+            "email": "ko.ma.rinka@yandex.ru"
+        }
+    ],
+    "require": {
+        "fakerphp/faker": "^1.21"
+    }
+}
