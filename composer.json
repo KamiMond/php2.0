@@ -1,0 +1,22 @@
+{
+    "name": "geekbrains/leveltwo",
+    "description": "my description",
+    "autoload": {
+        "psr-4": {
+            "GeekBrains\\LevelTwo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "KamiMond",
+            "email": "ko.ma.rinka@yandex.ru"
+        }
+    ],
+    "require": {
+        "fakerphp/faker": "^1.21",
+        "symfony/polyfill-uuid": "^1.27"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest"
+    }
+}
