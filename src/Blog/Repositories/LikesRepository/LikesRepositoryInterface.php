@@ -1,0 +1,12 @@
+<?php
+
+namespace GeekBrains\LevelTwo\Blog\Repositories\LikesRepository;
+
+use GeekBrains\LevelTwo\Blog\Like;
+use GeekBrains\LevelTwo\Blog\Post;
+
+interface LikesRepositoryInterface
+{
+    public function save(Like $like): void;
+    public function getByPostUuid(Post $uuid): Like;
+}

@@ -1,0 +1,31 @@
+{
+    "name": "geekbrains/leveltwo",
+    "description": "my description",
+    "autoload": {
+        "psr-4": {
+            "GeekBrains\\LevelTwo\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "GeekBrains\\LevelTwo\\Blog\\UnitTests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "KamiMond",
+            "email": "ko.ma.rinka@yandex.ru"
+        }
+    ],
+    "require": {
+        "fakerphp/faker": "^1.21",
+        "symfony/polyfill-uuid": "^1.27"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^9.6"
+    },
+    "scripts": {
+        "test": "phpunit tests --testdox --colors"
+    }
+}
