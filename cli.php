@@ -1,0 +1,42 @@
+<?php
+
+use Symfony\Component\Console\Application;
+use GeekBrains\LevelTwo\Blog\Commands\FakeData\PopulateDB;
+use GeekBrains\LevelTwo\Blog\Commands\Posts\DeletePost;
+use GeekBrains\LevelTwo\Blog\Commands\Users\CreateUser;
+use GeekBrains\LevelTwo\Blog\Commands\Users\UpdateUser;
+use Psr\Log\LoggerInterface;
+
+$connection = new PDO('sqlite:' . __DIR__ . '/blog.sqlite');
+
+$container = require __DIR__ . '/bootstrap.php';
+$logger = $container->get(LoggerInterface::class);
+
+
+// Создаём объект приложения
+$application = new Application();
+
+// Перечисляем классы команд
+$commandsClasses = [
+    CreateUser::class,
+    DeletePost::class,
+    UpdateUser::class,
+    PopulateDB::class
+];
+
+foreach ($commandsClasses as $commandClass) {
+// Посредством контейнера
+// создаём объект команды
+    $command = $container->get($commandClass);
+// Добавляем команду к приложению
+    $application->add($command);
+}
+
+try {
+
+    $application->run();
+
+} catch (Exception $e) {
+    $logger->error($e->getMessage(), ['exception' => $e]);
+    echo $e->getMessage();
+}
